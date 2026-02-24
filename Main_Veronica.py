@@ -1,30 +1,26 @@
 import numpy as np
 import random
+from Main import salva_su_file
 
 def somma_colonne(mat):
     sum_c = np.sum(mat, axis=0)
     print("La somma per colonne è: ", sum_c)
-    with open ("operazioni.txt", "a") as file:
-        file.write("\nSomma per colonne:\n" + str(sum_c))
+    salva_su_file("operazioni.txt", "\nSomma per colonne:\n" + str(sum_c))
 
 def media_colonna(mat):
     media_c = np.mean(mat, axis=0)
     print("La media per colonna è: ", media_c)
-    with open ("operazioni.txt", "a") as file:
-        file.write("\nMedia per colonna:\n" + str(media_c))
-
+    salva_su_file("operazioni.txt", "\nMedia per colonna:\n" + str(media_c))
 
 def somma_righe(mat):
     sum_r = np.sum(mat, axis=1)
     print("La somma per righe è: ", sum_r)
-    with open ("operazioni.txt", "a") as file:
-        file.write("\nSomma per righe:\n" + str(sum_r))
+    salva_su_file("operazioni.txt", "\nSomma per righe:\n" + str(sum_r))
 
 def media_riga(mat):
     media_r = np.mean(mat, axis=1)
     print("La media per riga è: ", media_r)
-    with open ("operazioni.txt", "a") as file:
-        file.write("\nMedia per riga:\n" + str(media_r))
+    salva_su_file("operazioni.txt", "\nMedia per riga:\n" + str(media_r))
 
 def prodotto_B_random(mat):
     righe = mat.shape[1]
@@ -33,27 +29,22 @@ def prodotto_B_random(mat):
     print("La nuova matrice generata è:\n", B)
     mat_prodotto = np.dot(mat, B)
     print("La matrice prodotto è:\n", mat_prodotto)
-    with open ("operazioni.txt", "a") as file:
-        file.write("\nNuova matrice generata:\n" + str(B))
-        file.write("\nMatrice prodotto:\n" + str(mat_prodotto))
+    salva_su_file("operazioni.txt", "\nNuova matrice generata:\n" + str(B) + "\nMatrice prodotto:\n" + str(mat_prodotto))
 
 def trasponi(mat):
     trasp = np.transpose(mat)
     print("\nLa matrice trasposta è:\n", trasp)
-    with open ("operazioni.txt", "a") as file:
-        file.write("\nMatrice trasposta:\n" + str(trasp))
+    salva_su_file("operazioni.txt", "\nMatrice trasposta:\n" + str(trasp))
 
 def norma(mat):
     norma = np.linalg.norm(mat)
     print("La norma della matrice è: ",norma)
-    with open ("operazioni.txt", "a") as file:
-        file.write("\nNorma della matrice:\n" + str(norma))
+    salva_su_file("operazioni.txt", "\nNorma della matrice:\n" + str(norma))
 
 def covarianza(mat):
     cov = np.cov(mat.T)
     print("La matrice di covarianza è:\n", cov)
-    with open ("operazioni.txt", "a") as file:
-        file.write("\nMatrice di covarianza:\n" + str(cov))
+    salva_su_file("operazioni.txt", "\nMatrice di covarianza:\n" + str(cov))
 
 while True:
     scelta = int(input("\nScrivi 1 per eseguire una nuova operazione, 0 per uscire: "))
@@ -70,8 +61,8 @@ while True:
             mat = np.loadtxt("array2D.txt", dtype=int)
             print("L'array 2D del file è il seguente:\n", mat, "\n")
 
-            with open ("operazioni.txt", "a") as file:
-                file.write("\nArray 2D su cui effettueremo le operazioni:\n" + str(mat))
+            salva_su_file("operazioni.txt", "\nArray 2D su cui effettueremo le operazioni:\n" + str(mat))
+
             operazione = int(input("\nSeleziona l'operazione che vuoi eseguire sulla matrice:\n1) Somma per colonne"
                                "\n2) Media per colonna\n3) Somma per righe\n"
                                "4) Media per riga\n"
@@ -108,5 +99,8 @@ while True:
                 print("Operazione selezionata inesistente.")
 
         else:
-            print("Scelta non valida.")
+            print("\nOpzione non valida.")
             continue
+    else:
+        print("\nScelta non valida.")
+        continue
