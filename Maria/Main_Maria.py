@@ -36,7 +36,7 @@ def min_max_arr(arr):
     max = np.max(arr)
     print("Valore minimo:", min)
     print("Valore massimo:", max)
-    salva_su_file(f"Minimo: {min}, Massimo: {max}")
+    salva_su_file("Minimo:" + str(min), "Massimo: ", str(max))
 
 #funzione per calcolare la deviazione standard
 def dev_std(arr):
