@@ -1,6 +1,60 @@
 import numpy as np
 import random
 
+def somma_colonne(mat):
+    sum_c = np.sum(mat, axis=0)
+    print("La somma per colonne è: ", sum_c)
+    with open ("operazioni.txt", "a") as file:
+        file.write("\nSomma per colonne:\n" + str(sum_c))
+
+def media_colonna(mat):
+    media_c = np.mean(mat, axis=0)
+    print("La media per colonna è: ", media_c)
+    with open ("operazioni.txt", "a") as file:
+        file.write("\nMedia per colonna:\n" + str(media_c))
+
+
+def somma_righe(mat):
+    sum_r = np.sum(mat, axis=1)
+    print("La somma per righe è: ", sum_r)
+    with open ("operazioni.txt", "a") as file:
+        file.write("\nSomma per righe:\n" + str(sum_r))
+
+def media_riga(mat):
+    media_r = np.mean(mat, axis=1)
+    print("La media per riga è: ", media_r)
+    with open ("operazioni.txt", "a") as file:
+        file.write("\nMedia per riga:\n" + str(media_r))
+
+def prodotto_B_random(mat):
+    righe = mat.shape[1]
+    colonne = random.randint(0,10)
+    B = np.random.randint(0,100,righe * colonne).reshape(righe, colonne)
+    print("La nuova matrice generata è:\n", B)
+    mat_prodotto = np.dot(mat, B)
+    print("La matrice prodotto è:\n", mat_prodotto)
+    with open ("operazioni.txt", "a") as file:
+        file.write("\nNuova matrice generata:\n" + str(B))
+        file.write("\nMatrice prodotto:\n" + str(mat_prodotto))
+
+def trasponi(mat):
+    trasp = np.transpose(mat)
+    print("\nLa matrice trasposta è:\n", trasp)
+    with open ("operazioni.txt", "a") as file:
+        file.write("\nMatrice trasposta:\n" + str(trasp))
+
+def norma(mat):
+    norma = np.linalg.norm(mat)
+    print("La norma della matrice è: ",norma)
+    with open ("operazioni.txt", "a") as file:
+        file.write("\nNorma della matrice:\n" + str(norma))
+
+def covarianza(mat):
+    cov = np.cov(mat.T)
+    print("La matrice di covarianza è:\n", cov)
+    with open ("operazioni.txt", "a") as file:
+        file.write("\nMatrice di covarianza:\n" + str(cov))
+
 while True:
     scelta = int(input("\nScrivi 1 per eseguire una nuova operazione, 0 per uscire: "))
     if scelta == 0:
@@ -27,57 +81,28 @@ while True:
                                "8) Matrice di covarianza\n"))
             
             if operazione == 1:
-                sum_c = np.sum(mat, axis=0)
-                print("La somma per colonne è: ", sum_c)
-                with open ("operazioni.txt", "a") as file:
-                    file.write("\nSomma per colonne:\n" + str(sum_c))
+                somma_colonne(mat)
 
             elif operazione == 2:
-                media_c = np.mean(mat, axis=0)
-                print("La media per colonna è: ", media_c)
-                with open ("operazioni.txt", "a") as file:
-                    file.write("\nMedia per colonna:\n" + str(media_c))
+                media_colonna(mat)
 
             elif operazione == 3:
-                sum_r = np.sum(mat, axis=1)
-                print("La somma per righe è: ", sum_r)
-                with open ("operazioni.txt", "a") as file:
-                    file.write("\nSomma per righe:\n" + str(sum_r))
+                somma_righe(mat)
 
             elif operazione == 4:
-                media_r = np.mean(mat, axis=1)
-                print("La media per riga è: ", media_r)
-                with open ("operazioni.txt", "a") as file:
-                    file.write("\nMedia per riga:\n" + str(media_r))
+                media_riga(mat)
 
             elif operazione == 5:
-                righe = mat.shape[1]
-                colonne = random.randint(0,10)
-                B = np.random.randint(0,100,righe * colonne).reshape(righe, colonne)
-                print("La nuova matrice generata è:\n", B)
-                mat_prodotto = np.dot(mat, B)
-                print("La matrice prodotto è:\n", mat_prodotto)
-                with open ("operazioni.txt", "a") as file:
-                    file.write("\nNuova matrice generata:\n" + str(B))
-                    file.write("\nMatrice prodotto:\n" + str(mat_prodotto))
+                prodotto_B_random(mat)
 
             elif operazione == 6:
-                trasp = np.transpose(mat)
-                print("\nLa matrice trasposta è:\n", trasp)
-                with open ("operazioni.txt", "a") as file:
-                    file.write("\nMatrice trasposta:\n" + str(trasp))
+                trasponi(mat)
 
             elif operazione == 7:
-                norma = np.linalg.norm(mat)
-                print("La norma della matrice è: ",norma)
-                with open ("operazioni.txt", "a") as file:
-                    file.write("\nNorma della matrice:\n" + str(norma))
+                norma(mat)
 
             elif operazione == 8:
-                cov = np.cov(mat.T)
-                print("La matrice di covarianza è:\n", cov)
-                with open ("operazioni.txt", "a") as file:
-                    file.write("\nMatrice di covarianza:\n" + str(cov))
+                covarianza(mat)
             
             else:
                 print("Operazione selezionata inesistente.")

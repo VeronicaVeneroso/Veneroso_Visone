@@ -1,0 +1,7 @@
+
+Array 2D su cui effettueremo le operazioni:
+[[ 4 54 76]
+ [64  5 43]
+ [26 59 43]]
+Somma per colonne:
+[ 94 118 162]
