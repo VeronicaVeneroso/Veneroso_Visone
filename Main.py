@@ -60,9 +60,9 @@ def covarianza(mat):
 
 
 #funzione per leggere il file
-def leggi_arrayfile(nome_file):
+def leggi_arrayfile(nome_file): 
     try:
-        arr = np.loadtxt(nome_file, dtype=int)  # legge direttamente numeri separati da spazi e li mette in un array numpy
+        arr = np.loadtxt(nome_file, dtype=int)  # metto in un array il contenuto di del file ovvero numeri separati da spazi
         print("Array letto dal file:", arr)
         salva_su_file("Array letto da " + nome_file + ": " + str(arr))  #str trasforma l'array in stringa, altrimenti non posso concatenare un array a una str
         return arr   #restituisce l’array
@@ -175,10 +175,12 @@ while True:
                     print("Scelta non valida, riprova.")
 
         elif dim == 2:
-            mat = np.loadtxt("array2D.txt", dtype=int)
-            print("L'array 2D del file è il seguente:\n", mat, "\n")
+            mat = leggi_arrayfile("array2D.txt")
 
-            salva_su_file("\nArray 2D su cui effettueremo le operazioni:\n" + str(mat))
+            if mat is None:
+                print("Errore nella lettura del file. Riprova.")
+                continue # Non entra nel menu successivo, torna al principale
+
             while True:
                 operazione = int(input("\nSeleziona l'operazione che vuoi eseguire sulla matrice:\n1) Somma per colonne"
                                 "\n2) Media per colonna\n3) Somma per righe\n"
