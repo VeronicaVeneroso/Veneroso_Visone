@@ -29,3 +29,11 @@ Array 2D su cui effettueremo le operazioni:
 
 Media per colonna:
 [31.33333333 39.33333333 54.        ]
+Array letto da array2D.txt: [[ 4 54 76]
+ [64  5 43]
+ [26 59 43]]
+
+Media per riga:
+[44.66666667 37.33333333 42.66666667]
+Array letto da array1D.txt: [ 1  5  6  8  9 30]
+Media dell'array:9.833333333333334

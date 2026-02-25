@@ -63,8 +63,8 @@ def covarianza(mat):
 def leggi_arrayfile(nome_file): 
     try:
         arr = np.loadtxt(nome_file, dtype=int)  # metto in un array il contenuto di del file ovvero numeri separati da spazi
-        print("Array letto dal file:", arr)
-        salva_su_file("Array letto da " + nome_file + ": " + str(arr))  #str trasforma l'array in stringa, altrimenti non posso concatenare un array a una str
+        print("Array letto dal file:\n", arr)
+        salva_su_file("Array letto da " + nome_file + ":\n" + str(arr))  #str trasforma l'array in stringa, altrimenti non posso concatenare un array a una str
         return arr   #restituisce l’array
     except:  #se succede qualche errore nel try
         print("Errore nella lettura del file.")
