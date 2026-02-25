@@ -1,0 +1,31 @@
+Array letto da array1D.txt: [ 1  5  6  8  9 30]
+La media è:9.833333333333334
+Array letto da array1D.txt: [ 1  5  6  8  9 30]
+Minimo:1. Massimo: 30
+Deviazione standard:9.370461864580397
+Indice valore minimo: 0, Valore minimo: 1
+Indice valore massimo: 5, Valore massimo: 30
+Median: 7.0
+Array ordinato:[ 1  5  6  8  9 30]
+Posizione per inserire 2:1
+
+Array 2D su cui effettueremo le operazioni:
+[[ 4 54 76]
+ [64  5 43]
+ [26 59 43]]
+
+Somma per colonne:
+[ 94 118 162]
+
+Array 2D su cui effettueremo le operazioni:
+[[ 4 54 76]
+ [64  5 43]
+ [26 59 43]]
+
+Array 2D su cui effettueremo le operazioni:
+[[ 4 54 76]
+ [64  5 43]
+ [26 59 43]]
+
+Media per colonna:
+[31.33333333 39.33333333 54.        ]
